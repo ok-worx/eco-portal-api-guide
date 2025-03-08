@@ -32,3 +32,4 @@ jobs:
           folder: .
           target-folder: .
           clean: true
+          token: ${{ secrets.GH_PAGES_DEPLOY }}
