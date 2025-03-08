@@ -8201,6 +8201,28 @@ Has a GWP of:
 </tr>
 <tr>
 <th>1</th>
+<td>[en]</td>
+<td>Durasein Solid Surface</td>
+<td>e26d3411-373a-4cdd-af82-08db7e36184f</td>
+<td>07.01.052</td>
+<td>GLO</td>
+<td>Construction products, Infrastructure &amp; buildings</td>
+<td>0</td>
+<td>The International EPD System</td>
+<td>EPD</td>
+<td>2023</td>
+<td>2028</td>
+<td>[{'name': 'EN 15804+A2 (EF 3.0)', 'uuid': 'c00...</td>
+<td>specific dataset</td>
+<td>[{'uuid': 'b497a91f-e14b-4b69-8f28-f50eb157676...</td>
+<td>EPD-IES-0007415:004 (S-P-07415)</td>
+<td>{'uuid': '5e09bd06-11a1-4292-a56b-47898ad6a691'}</td>
+<td>ENVIRONDEC</td>
+<td>https://data.environdec.com/resource/datastock...</td>
+<td>Process</td>
+</tr>
+<tr>
+<th>2</th>
 <td>[no]</td>
 <td>NaN</td>
 <td>ac58a83c-e898-4505-9d93-9c5b4e3e852f</td>
@@ -8222,7 +8244,7 @@ Has a GWP of:
 <td>Process</td>
 </tr>
 <tr>
-<th>2</th>
+<th>3</th>
 <td>[no]</td>
 <td>NaN</td>
 <td>10eba8d0-fcd6-4c80-9227-69de52a68740</td>
@@ -8244,7 +8266,7 @@ Has a GWP of:
 <td>Process</td>
 </tr>
 <tr>
-<th>3</th>
+<th>4</th>
 <td>[en]</td>
 <td>ABT Skanska Grön AsfaltBio Zero. Gällivare, L...</td>
 <td>58871b96-bcdf-4438-b82f-d100c1df1fe5</td>
@@ -8260,28 +8282,6 @@ Has a GWP of:
 <td>specific dataset</td>
 <td>[{'uuid': 'b497a91f-e14b-4b69-8f28-f50eb157676...</td>
 <td>NEPD-2820-1517</td>
-<td>{'uuid': '7008caa3-6fea-4ad2-81eb-f2b7a0610e6c'}</td>
-<td>EPD-NORWAY_DIGI</td>
-<td>https://epdnorway.lca-data.com/resource/datast...</td>
-<td>Process</td>
-</tr>
-<tr>
-<th>4</th>
-<td>[en]</td>
-<td>ABb PMB, Skanska Industrial Solutions, Dalby ...</td>
-<td>94506cde-817c-4307-bef0-4a317b894e95</td>
-<td>00.07.000</td>
-<td>SE</td>
-<td>Bygg / Asfalt og pukk</td>
-<td>67dd3145-6d07-4939-8373-297d512803ca</td>
-<td>EPDNorge</td>
-<td>EPD</td>
-<td>2024</td>
-<td>2029</td>
-<td>[{'name': 'EN 15804+A2', 'uuid': 'c0016b33-8cf...</td>
-<td>specific dataset</td>
-<td>[{'uuid': 'b497a91f-e14b-4b69-8f28-f50eb157676...</td>
-<td>NEPD-5731-5030-EN</td>
 <td>{'uuid': '7008caa3-6fea-4ad2-81eb-f2b7a0610e6c'}</td>
 <td>EPD-NORWAY_DIGI</td>
 <td>https://epdnorway.lca-data.com/resource/datast...</td>
@@ -8313,8 +8313,8 @@ Has a GWP of:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Filter-by-compliance">Filter by <strong>compliance</strong><a class="anchor-link" href="#Filter-by-compliance">¶</a></h3><p><a href="https://bitbucket.org/okusche/soda4lca/src/26955bf0d6dabc008e19a39c975973f762ef281f/Doc/src/Service_API/Service_API_Datasets_Process_Query.md?at=7.x-branch#Service_API_Datasets_Process_Query.md-44">this</a> is the api doku for it</p>
-<p>the uuids for the compience are from <a href="https://indatawg.github.io/ILCD-EPD-Data-Format/gitBranches/main/identifiers/Common_references.html">hear</a></p>
+<h3 id="Filter-by-compliance">Filter by <strong>compliance</strong><a class="anchor-link" href="#Filter-by-compliance">¶</a></h3><p><a href="https://bitbucket.org/okusche/soda4lca/src/26955bf0d6dabc008e19a39c975973f762ef281f/Doc/src/Service_API/Service_API_Datasets_Process_Query.md?at=7.x-branch#Service_API_Datasets_Process_Query.md-44">This</a> is the API documentation for it</p>
+<p>The UUIDs for compliance are from <a href="https://indatawg.github.io/ILCD-EPD-Data-Format/gitBranches/main/identifiers/Common_references.html">here</a> or below</p>
 <table>
 <thead>
 <tr>
@@ -8566,7 +8566,245 @@ Has a GWP of:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Select-a-specific-EPD-Number">Select a specific EPD-Number<a class="anchor-link" href="#Select-a-specific-EPD-Number">¶</a></h3><p>(I then this is wrong)</p>
+<h3 id="Select-a-specific-EPD-Number">Select a specific EPD-Number<a class="anchor-link" href="#Select-a-specific-EPD-Number">¶</a></h3><p>We use 2 types of Background Databases</p>
+<h4 id="GaBi"><a href="https://indatawg.github.io/ILCD-EPD-Data-Format/gitBranches/main/identifiers/BackgroundDB_SourceDatasets_GaBi.html">GaBi</a><a class="anchor-link" href="#GaBi">¶</a></h4><table>
+<thead>
+<tr>
+<th>GaBi Database Version</th>
+<th>Name</th>
+<th>UUID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all</td>
+<td>GaBi Database (general)</td>
+<td>28d74cc0-db8b-4d7e-bc44-5f6d56ce0c4a</td>
+</tr>
+<tr>
+<td>SP20 2013</td>
+<td>GaBi database SP20 2013</td>
+<td>b9fdf525-e9b8-47a0-b897-2ecfe7e2cff5</td>
+</tr>
+<tr>
+<td>SP25 2014</td>
+<td>GaBi database SP25 2014</td>
+<td>04536297-8f33-4ef0-b06c-54dc273c2aaa</td>
+</tr>
+<tr>
+<td>SP26 2014</td>
+<td>GaBi database SP26 2014</td>
+<td>7d81b748-d7ea-4efd-b72e-205c69306f38</td>
+</tr>
+<tr>
+<td>SP27 2015</td>
+<td>GaBi database SP27 2015</td>
+<td>9422129a-7992-4eaf-aa17-0fca36af4512</td>
+</tr>
+<tr>
+<td>SP28 2015</td>
+<td>GaBi database SP28 2015</td>
+<td>176effc6-2e73-4419-be24-60b3399e91cf</td>
+</tr>
+<tr>
+<td>SP29 2016</td>
+<td>GaBi database SP29 2016</td>
+<td>8cb50bdc-0299-4a4c-9a4e-4c62917018c7</td>
+</tr>
+<tr>
+<td>SP30 2016</td>
+<td>GaBi database SP30 2016</td>
+<td>6985fea4-15ea-4b96-9237-c67ee3a1f28c</td>
+</tr>
+<tr>
+<td>SP33 2017</td>
+<td>GaBi database SP33 2017</td>
+<td>d8181616-4417-4dbd-9614-09937353f17a</td>
+</tr>
+<tr>
+<td>SP34 2017</td>
+<td>GaBi database SP34 2017</td>
+<td>07650073-f65e-4d07-97e9-359a58b7299e</td>
+</tr>
+<tr>
+<td>SP35 2018</td>
+<td>GaBi database SP35 2018</td>
+<td>feda7597-12a1-4bd5-93ef-4d8120877b78</td>
+</tr>
+<tr>
+<td>SP36 2018</td>
+<td>GaBi database SP36 2018</td>
+<td>dad5023c-8d97-4656-b82a-2fc6480b33a7</td>
+</tr>
+<tr>
+<td>SP37 2019</td>
+<td>GaBi database SP37 2019</td>
+<td>aaef5d83-7fd3-424f-86c6-00f51cd39845</td>
+</tr>
+<tr>
+<td>SP38 2019</td>
+<td>GaBi database SP38 2019</td>
+<td>4467e22f-78e4-4e21-ae4a-b8ffeda7d795</td>
+</tr>
+<tr>
+<td>SP39 2019</td>
+<td>GaBi database SP39 2019</td>
+<td>07d9b8a7-e0fc-408f-a95e-c90735f843ce</td>
+</tr>
+<tr>
+<td>SP40 2020</td>
+<td>GaBi database SP40 2020</td>
+<td>0115289e-52f0-4920-bc7e-57b1c96aec8d</td>
+</tr>
+<tr>
+<td>Edition 2020, CUP 2020.02</td>
+<td>GaBi Database Edition 2020, CUP 2020.02</td>
+<td>4b368ada-d799-4afc-9d41-f371f2b23781</td>
+</tr>
+<tr>
+<td>Edition 2021, CUP 2021.01</td>
+<td>GaBi Database Edition 2021, CUP 2021.01</td>
+<td>1cece811-7501-44d4-8067-9259bd5cb835</td>
+</tr>
+<tr>
+<td>Edition 2021, CUP 2021.02</td>
+<td>GaBi Database Edition 2021, CUP 2021.02</td>
+<td>90321ffe-9ebb-4946-886c-338efe6fbf26</td>
+</tr>
+<tr>
+<td>Edition 2022, CUP 2022.01</td>
+<td>GaBi Database Edition 2022, CUP 2022.01</td>
+<td>86f664e2-7dab-4722-aad7-4c5206a4123b</td>
+</tr>
+<tr>
+<td>Edition 2022, CUP 2022.02</td>
+<td>GaBi Database Edition 2022, CUP 2022.02</td>
+<td>94f442cb-662e-43ea-a792-4b0a35132e93</td>
+</tr>
+<tr>
+<td>CUP 2023.01</td>
+<td>Sphera MLC (fka GaBi) CUP 2023.01</td>
+<td>6bcd5bfa-3623-48ab-a52b-6d5be8db82ed</td>
+</tr>
+<tr>
+<td>CUP 2023.02</td>
+<td>Sphera MLC (fka GaBi) CUP 2023.02</td>
+<td>cb600d3b-e85a-42b3-b059-5591e2757fbb</td>
+</tr>
+<tr>
+<td>Edition 2024</td>
+<td>Sphera MLC (fka GaBi) Databases Edition 2024</td>
+<td>7443b962-0446-4d69-8aa7-8055a6b1614a</td>
+</tr>
+</tbody>
+</table>
+<h4 id="and-ecoinvent">and <a href="https://indatawg.github.io/ILCD-EPD-Data-Format/gitBranches/main/identifiers/BackgroundDB_SourceDatasets_ecoinvent.html">ecoinvent</a><a class="anchor-link" href="#and-ecoinvent">¶</a></h4><table>
+<thead>
+<tr>
+<th>ecoinvent Database Version</th>
+<th>Name</th>
+<th>UUID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all</td>
+<td>ecoinvent database (general)</td>
+<td>b497a91f-e14b-4b69-8f28-f50eb1576766</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>ecoinvent 2.0 database</td>
+<td>67e57f6b-53d2-4adb-a5db-7e8157ce5865</td>
+</tr>
+<tr>
+<td>2.1</td>
+<td>ecoinvent 2.1 database</td>
+<td>dd4ba261-1847-4d00-a9c0-7e81a3402dae</td>
+</tr>
+<tr>
+<td>2.2</td>
+<td>ecoinvent 2.2 database</td>
+<td>9ffadc15-4649-4871-b565-cee8197b17e9</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>ecoinvent 3.0 database</td>
+<td>ae9fac17-61c1-4776-947a-0fc2865954ff</td>
+</tr>
+<tr>
+<td>3.1</td>
+<td>ecoinvent 3.1 database</td>
+<td>44df4cc3-a75f-4e13-a37a-971dadc97b35</td>
+</tr>
+<tr>
+<td>3.2</td>
+<td>ecoinvent 3.2 database</td>
+<td>d82a6cdc-1930-4a8a-9b07-2f7fda03fcbd</td>
+</tr>
+<tr>
+<td>3.3</td>
+<td>ecoinvent 3.3 database</td>
+<td>c667cc42-12a7-4d92-9d7b-5e4e90a7a274</td>
+</tr>
+<tr>
+<td>3.4</td>
+<td>ecoinvent 3.4 database</td>
+<td>db59e0c6-db9a-4d9a-8637-67b8ed42415c</td>
+</tr>
+<tr>
+<td>3.5</td>
+<td>ecoinvent 3.5 database</td>
+<td>ca0da4f4-c837-4005-9c17-e77b9bd09d8b</td>
+</tr>
+<tr>
+<td>3.6</td>
+<td>ecoinvent 3.6 database</td>
+<td>766b9973-5ee8-48a2-8098-72c8e20b369f</td>
+</tr>
+<tr>
+<td>3.7</td>
+<td>ecoinvent 3.7 database</td>
+<td>de2729d9-235e-4588-8dd0-dba6a1d1f2e1</td>
+</tr>
+<tr>
+<td>3.7.1</td>
+<td>ecoinvent 3.7.1 database</td>
+<td>3a4d6cdd-46ad-4ff3-8452-a0323e94f789</td>
+</tr>
+<tr>
+<td>3.8</td>
+<td>ecoinvent 3.8 database</td>
+<td>0f4c65c0-6210-450f-b886-82bf8dd5ace9</td>
+</tr>
+<tr>
+<td>3.9</td>
+<td>ecoinvent 3.9 database</td>
+<td>c6825ce7-2951-4e1e-8634-426c7af4679b</td>
+</tr>
+<tr>
+<td>3.9.1</td>
+<td>ecoinvent 3.9.1 database</td>
+<td>e2034c8f-9d74-46f2-8fce-1f0c5c5cebeb</td>
+</tr>
+<tr>
+<td>3.10</td>
+<td>ecoinvent 3.10 database</td>
+<td>6edab576-5247-472f-a2f4-0cb84561ca8b</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a href="https://bitbucket.org/okusche/soda4lca/src/26955bf0d6dabc008e19a39c975973f762ef281f/Doc/src/Service_API/Service_API_Datasets_Process_Query.md?at=7.x-branch#Service_API_Datasets_Process_Query.md-44">This</a> is the API documentation for it</p>
 </div>
 </div>
 </div>
@@ -8641,6 +8879,28 @@ Has a GWP of:
 <tr>
 <th>0</th>
 <td>[en]</td>
+<td>Durasein Solid Surface</td>
+<td>e26d3411-373a-4cdd-af82-08db7e36184f</td>
+<td>07.01.052</td>
+<td>GLO</td>
+<td>Construction products, Infrastructure &amp; buildings</td>
+<td>0</td>
+<td>The International EPD System</td>
+<td>EPD</td>
+<td>2023</td>
+<td>2028</td>
+<td>[{'name': 'EN 15804+A2 (EF 3.0)', 'uuid': 'c00...</td>
+<td>specific dataset</td>
+<td>[{'uuid': 'b497a91f-e14b-4b69-8f28-f50eb157676...</td>
+<td>EPD-IES-0007415:004 (S-P-07415)</td>
+<td>{'uuid': '5e09bd06-11a1-4292-a56b-47898ad6a691'}</td>
+<td>ENVIRONDEC</td>
+<td>https://data.environdec.com/resource/datastock...</td>
+<td>Process</td>
+</tr>
+<tr>
+<th>1</th>
+<td>[en]</td>
 <td>Blended Hydraulic Cement</td>
 <td>efe3d139-d74f-46e2-37b4-08dc2e3a4f3f</td>
 <td>07.01.009</td>
@@ -8661,7 +8921,7 @@ Has a GWP of:
 <td>Process</td>
 </tr>
 <tr>
-<th>1</th>
+<th>2</th>
 <td>[en]</td>
 <td>CEM II/B-LL 32,5 R - Sacchi - Colacem S.p.A. ...</td>
 <td>23832079-c797-4932-456e-08dc6fc9d4ca</td>
@@ -8683,7 +8943,7 @@ Has a GWP of:
 <td>Process</td>
 </tr>
 <tr>
-<th>2</th>
+<th>3</th>
 <td>[en]</td>
 <td>CEM IV/A (P) 42,5 R - SR - RAGUSA CEMENTI S.p...</td>
 <td>31ae4037-e9e6-48fa-9b9c-08dbdfa8f0c9</td>
@@ -8705,7 +8965,7 @@ Has a GWP of:
 <td>Process</td>
 </tr>
 <tr>
-<th>3</th>
+<th>4</th>
 <td>[en]</td>
 <td>CEM IV/B (P) 32,5 R - LH/SR - Sfuso - Colacem...</td>
 <td>a757fac6-b025-4b0c-c86a-08db8d2354cc</td>
@@ -8721,28 +8981,6 @@ Has a GWP of:
 <td>specific dataset</td>
 <td>[{'uuid': 'b497a91f-e14b-4b69-8f28-f50eb157676...</td>
 <td>EPD-IES-0010140:002 (S-P-10140)</td>
-<td>{'uuid': '5e09bd06-11a1-4292-a56b-47898ad6a691'}</td>
-<td>ENVIRONDEC</td>
-<td>https://data.environdec.com/resource/datastock...</td>
-<td>Process</td>
-</tr>
-<tr>
-<th>4</th>
-<td>[en]</td>
-<td>CERESIT CT 84 (EE)</td>
-<td>d3d59830-9e5b-4a3c-458f-08dc6fc9d4ca</td>
-<td>07.01.005</td>
-<td>GLO</td>
-<td>Construction products, Infrastructure &amp; buildings</td>
-<td>0</td>
-<td>The International EPD System</td>
-<td>EPD</td>
-<td>2024</td>
-<td>2029</td>
-<td>[{'name': 'EN 15804+A2 (EF 3.0)', 'uuid': 'c00...</td>
-<td>specific dataset</td>
-<td>[{'uuid': 'b497a91f-e14b-4b69-8f28-f50eb157676...</td>
-<td>EPD-IES-0013886:001 (S-P-13886)</td>
 <td>{'uuid': '5e09bd06-11a1-4292-a56b-47898ad6a691'}</td>
 <td>ENVIRONDEC</td>
 <td>https://data.environdec.com/resource/datastock...</td>
@@ -8811,20 +9049,20 @@ Has a GWP of:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>languages                                                       [en]
-name                                        Blended Hydraulic Cement
-uuid                            efe3d139-d74f-46e2-37b4-08dc2e3a4f3f
-version                                                    07.01.009
-geo                                                               SA
-classific                                      Construction products
+name                                         Durasein Solid Surface 
+uuid                            e26d3411-373a-4cdd-af82-08db7e36184f
+version                                                    07.01.052
+geo                                                              GLO
+classific          Construction products, Infrastructure &amp; buildings
 classificId                                                        0
 classificSystem                         The International EPD System
 type                                                             EPD
-refYear                                                         2024
-validUntil                                                      2029
+refYear                                                         2023
+validUntil                                                      2028
 compliance         [{'name': 'EN 15804+A2 (EF 3.0)', 'uuid': 'c00...
 subType                                             specific dataset
 dataSources        [{'uuid': 'b497a91f-e14b-4b69-8f28-f50eb157676...
-regNo                                EPD-IES-0012616:001 (S-P-12616)
+regNo                                EPD-IES-0007415:004 (S-P-07415)
 regAuthority        {'uuid': '5e09bd06-11a1-4292-a56b-47898ad6a691'}
 nodeid                                                    ENVIRONDEC
 uri                https://data.environdec.com/resource/datastock...
@@ -8875,8 +9113,8 @@ Name: 0, dtype: object
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>https://data.environdec.com/resource/datastocks/a6c533b3-502e-47b9-885d-31304bf15c64/processes/efe3d139-d74f-46e2-37b4-08dc2e3a4f3f?version=07.01.009
-https://data.environdec.com/resource/processes/efe3d139-d74f-46e2-37b4-08dc2e3a4f3f/epd?version=07.01.009
+<pre>https://data.environdec.com/resource/datastocks/a6c533b3-502e-47b9-885d-31304bf15c64/processes/e26d3411-373a-4cdd-af82-08db7e36184f?version=07.01.052
+https://data.environdec.com/resource/processes/e26d3411-373a-4cdd-af82-08db7e36184f/epd?version=07.01.052
 PDF downloaded successfully.
 </pre>
 </div>
@@ -8934,7 +9172,7 @@ PDF downloaded successfully.
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>https://data.environdec.com//resource/datastocks/efe3d139-d74f-46e2-37b4-08dc2e3a4f3f/exportCSV
+<pre>https://data.environdec.com//resource/datastocks/e26d3411-373a-4cdd-af82-08db7e36184f/exportCSV
 &lt;!doctype html&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;HTTP Status 501 – Not Implemented&lt;/title&gt;&lt;style type="text/css"&gt;body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;HTTP Status 501 – Not Implemented&lt;/h1&gt;&lt;hr class="line" /&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt; Status Report&lt;/p&gt;&lt;p&gt;&lt;b&gt;Message&lt;/b&gt; Not Implemented&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt; The server does not support the functionality required to fulfill the request.&lt;/p&gt;&lt;hr class="line" /&gt;&lt;h3&gt;Apache Tomcat/9.0.98&lt;/h3&gt;&lt;/body&gt;&lt;/html&gt;
 </pre>
 </div>
@@ -9254,7 +9492,7 @@ PDF downloaded successfully.
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>A unit group data set with the uuid efe3d139-d74f-46e2-37b4-08dc2e3a4f3f cannot be found in the database
+<pre>A unit group data set with the uuid e26d3411-373a-4cdd-af82-08db7e36184f cannot be found in the database
 </pre>
 </div>
 </div>
