@@ -3,3 +3,6 @@
 example_process.pdf
 notebook.*
 !notebook.ipynb
+
+.idea
+*.iml

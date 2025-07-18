@@ -7552,23 +7552,25 @@ As the construction industry shifts toward <strong>low-carbon solutions and reso
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="API-Structure">API Structure<a class="anchor-link" href="#API-Structure">¶</a></h2><p>The Soda4LCA APIs follow this URL structure:</p>
+<h2 id="API-Structure">API Structure<a class="anchor-link" href="#API-Structure">¶</a></h2><p>The soda4LCA API follows this URL structure:</p>
 <pre><code class="language-url">url
 &lt;BASE_URL&gt;/resource/&lt;ENDPOINT&gt;?&lt;QUERY_PARAMETERS&gt;
 </code></pre>
-<p>The <strong>Authorization token</strong> you have to include in the request headers.</p>
-<h3 id="Listing-All-Processes">Listing All Processes<a class="anchor-link" href="#Listing-All-Processes">¶</a></h3><p>Let's list five processes using the API.</p>
+<p>The <strong>Authorization token</strong> needs to be includes in the request headers.</p>
+<p>Let's get started with a very simple use case.</p>
+<h3 id="Listing-All-EPD-datasets">Listing All EPD datasets<a class="anchor-link" href="#Listing-All-EPD-datasets">¶</a></h3><p>TODO Oli: reference that explains relationship EPD -&gt; EPD dataset</p>
+<p>Let's list five EPD datasets using the API.</p>
 <h4 id="Query-Parameters-Documentation">Query Parameters Documentation<a class="anchor-link" href="#Query-Parameters-Documentation">¶</a></h4><ul>
 <li>The documentation for general <code>QUERY_PARAMETERS</code> can be found <a href="https://bitbucket.org/okusche/soda4lca/src/26955bf0d6dabc008e19a39c975973f762ef281f/Doc/src/Service_API/Service_API_Datasets_GET.md?at=7.x-branch">here</a>.</li>
-<li>The <code>QUERY_PARAMETERS</code> specific to processes are documented <a href="https://bitbucket.org/okusche/soda4lca/src/26955bf0d6dabc008e19a39c975973f762ef281f/Doc/src/Service_API/Service_API_Datasets_Process_Query.md?at=7.x-branch#Service_API_Datasets_Process_Query.md-44">here</a>.</li>
+<li>The <code>QUERY_PARAMETERS</code> specific to process datasets are documented <a href="https://bitbucket.org/okusche/soda4lca/src/26955bf0d6dabc008e19a39c975973f762ef281f/Doc/src/Service_API/Service_API_Datasets_Process_Query.md?at=7.x-branch#Service_API_Datasets_Process_Query.md-44">here</a>.</li>
 </ul>
-<h4 id="Querying-the-Processes-Endpoint">Querying the Processes Endpoint<a class="anchor-link" href="#Querying-the-Processes-Endpoint">¶</a></h4><p>You need to set the query parameters to:</p>
+<h4 id="Querying-the-/processes-Endpoint">Querying the /processes Endpoint<a class="anchor-link" href="#Querying-the-/processes-Endpoint">¶</a></h4><p>You need to set the query parameters to:</p>
 <div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">"search"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"distributed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"metaDataOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"validUntil"</span><span class="p">:</span><span class="w"> </span><span class="mi">2024</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"validUntil"</span><span class="p">:</span><span class="w"> </span><span class="mi">2025</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"startIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSON"</span>
@@ -7579,7 +7581,7 @@ As the construction industry shifts toward <strong>low-carbon solutions and reso
 <li><strong>search</strong>: Enables search functionality.</li>
 <li><strong>distributed</strong>: Includes distributed datasets.</li>
 <li><strong>virtual</strong>: Includes virtual datasets.</li>
-<li><strong>metaDataOnly</strong>: If <code>true</code>, only metadata is returned.</li>
+<li><strong>metaDataOnly</strong>: If <code>true</code>, datasets that only carry metadata and a PDF (stubs) are also returned, which we are not interested in.</li>
 <li><strong>validUntil</strong>: Filters results by validity year.</li>
 <li><strong>pageSize</strong>: Limits the number of results per request.</li>
 <li><strong>startIndex</strong>: Defines the starting point for pagination.</li>
@@ -7587,12 +7589,12 @@ As the construction industry shifts toward <strong>low-carbon solutions and reso
 </ul>
 <h4 id="Constructing-the-URL">Constructing the URL<a class="anchor-link" href="#Constructing-the-URL">¶</a></h4><p>Using these parameters, the request URL looks like this:</p>
 <pre><code class="language-url">url
-https://data.eco-platform.org/resource/processes?search=true&amp;distributed=true&amp;virtual=true&amp;metaDataOnly=false&amp;validUntil=2024&amp;pageSize=5&amp;startIndex=0&amp;format=JSON
+https://data.eco-platform.org/resource/processes?search=true&amp;distributed=true&amp;virtual=true&amp;metaDataOnly=false&amp;validUntil=2025&amp;pageSize=5&amp;startIndex=0&amp;format=JSON
 </code></pre>
 <p>then copy the URL to the browser and see if it works!</p>
-<p>Some free Environmental Product Declarations (EPDs) can be viewed without registration. However, to access the full set of capabilities that the Eco Platform has to offer, you must register and obtain an <strong>Authorization token</strong>.</p>
+<p>Some free Environmental Product Declarations (EPDs) can be viewed without registration. However, to access the full set of capabilities that the ECO Platform has to offer, you must register and obtain an <strong>Authorization token</strong>.</p>
 <h3 id="Making-a-Request-with-curl">Making a Request with <code>curl</code><a class="anchor-link" href="#Making-a-Request-with-curl">¶</a></h3><p>You can retrieve the data using <code>curl</code>:</p>
-<div class="highlight"><pre><span></span>curl<span class="w"> </span><span class="s2">"https://data.eco-platform.org/resource/processes?search=true&amp;distributed=true&amp;virtual=true&amp;metaDataOnly=false&amp;validUntil=2024&amp;pageSize=5&amp;startIndex=0&amp;format=JSON"</span>
+<div class="highlight"><pre><span></span>curl<span class="w"> </span><span class="s2">"https://data.eco-platform.org/resource/processes?search=true&amp;distributed=true&amp;virtual=true&amp;metaDataOnly=false&amp;validUntil=2025&amp;pageSize=5&amp;startIndex=0&amp;format=JSON"</span>
 </pre></div>
 <p>If the request is successful, the output will display the retrieved data.</p>
 <h4 id="Adding-an-Authorization-Token">Adding an Authorization Token<a class="anchor-link" href="#Adding-an-Authorization-Token">¶</a></h4><p>To access restricted resources, you need to include an <strong>Authorization token</strong>. We recommend storing it in an <code>.env</code> file or saving it securely.</p>
@@ -7609,7 +7611,7 @@ echo %TOKEN%
 </pre></div>
 <p>If you don't see your token, replace <code>$TOKEN</code> in the following command with your actual token.</p>
 <p><strong>Making an Authorized Request</strong></p>
-<div class="highlight"><pre><span></span>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">"</span><span class="w"> </span><span class="s2">"https://data.eco-platform.org/resource/processes?search=true&amp;distributed=true&amp;virtual=true&amp;metaDataOnly=false&amp;validUntil=2024&amp;pageSize=5&amp;startIndex=0&amp;format=JSON"</span>
+<div class="highlight"><pre><span></span>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">"</span><span class="w"> </span><span class="s2">"https://data.eco-platform.org/resource/processes?search=true&amp;distributed=true&amp;virtual=true&amp;metaDataOnly=false&amp;validUntil=2025&amp;pageSize=5&amp;startIndex=0&amp;format=JSON"</span>
 </pre></div>
 <p>This should return the same output but now includes access to restricted resources.</p>
 <h3 id="Making-the-Request-in-Python">Making the Request in Python<a class="anchor-link" href="#Making-the-Request-in-Python">¶</a></h3><p>Let's see how to perform the same request using Python.</p>
@@ -7727,7 +7729,7 @@ Requirement already satisfied: python-dotenv in /home/elias/.pyenv/versions/3.11
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Base URL form the eco platform  </span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Base URL form the ECO Platform</span>
 <span class="n">BASE_URL</span> <span class="o">=</span> <span class="s1">'https://data.eco-platform.org/resource/'</span>
 
 <span class="c1"># Endpoint for processes</span>
@@ -7739,7 +7741,7 @@ Requirement already satisfied: python-dotenv in /home/elias/.pyenv/versions/3.11
     <span class="s1">'distributed'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="s1">'virtual'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="s1">'metaDataOnly'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s1">'validUntil'</span><span class="p">:</span> <span class="mi">2024</span><span class="p">,</span>
+    <span class="s1">'validUntil'</span><span class="p">:</span> <span class="mi">2025</span><span class="p">,</span>
     <span class="s1">'pageSize'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
     <span class="s1">'startIndex'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s1">'format'</span><span class="p">:</span> <span class="s1">'JSON'</span><span class="p">,</span>
@@ -7929,8 +7931,8 @@ Requirement already satisfied: python-dotenv in /home/elias/.pyenv/versions/3.11
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Get-Global-Warming-Potential-(GWP)-of-Concrete">Get Global Warming Potential (GWP) of Concrete<a class="anchor-link" href="#Get-Global-Warming-Potential-(GWP)-of-Concrete">¶</a></h2><p>Now lets look at a more involved example, we now want to get the GWP of Concrete.</p>
-<h3 id="Step-1:-Find-the-Concrete">Step 1: Find the Concrete<a class="anchor-link" href="#Step-1:-Find-the-Concrete">¶</a></h3>
+<h2 id="Get-Global-Warming-Potential-(GWP)-for-a-concrete-EPD">Get Global Warming Potential (GWP) for a concrete EPD<a class="anchor-link" href="#Get-Global-Warming-Potential-(GWP)-for-a-concrete-EPD">¶</a></h2><p>Now lets look at a more involved example, we now want to get the GWP for an EPD on concrete.</p>
+<h3 id="Step-1:-Find-a-dataset-for-concrete">Step 1: Find a dataset for concrete<a class="anchor-link" href="#Step-1:-Find-a-dataset-for-concrete">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7942,10 +7944,10 @@ Requirement already satisfied: python-dotenv in /home/elias/.pyenv/versions/3.11
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Base URL for the Eco Platform data aggregator</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Base URL for the ECO Platform data aggregator</span>
 <span class="n">BASE_URL</span> <span class="o">=</span> <span class="s1">'https://data.eco-platform.org/resource/'</span>
 
-<span class="c1"># API endpoint for fetching process data</span>
+<span class="c1"># API endpoint for fetching EPD datasets</span>
 <span class="n">PROCESS_ENDPOINT</span> <span class="o">=</span> <span class="s1">'processes'</span>
 
 <span class="c1"># Query parameters for filtering concrete data</span>
@@ -7954,7 +7956,7 @@ Requirement already satisfied: python-dotenv in /home/elias/.pyenv/versions/3.11
     <span class="s1">'distributed'</span><span class="p">:</span> <span class="s1">'true'</span><span class="p">,</span>
     <span class="s1">'virtual'</span><span class="p">:</span> <span class="s1">'true'</span><span class="p">,</span>
     <span class="s1">'metaDataOnly'</span><span class="p">:</span> <span class="s1">'false'</span><span class="p">,</span>
-    <span class="s1">'validUntil'</span><span class="p">:</span> <span class="s1">'2024'</span><span class="p">,</span>
+    <span class="s1">'validUntil'</span><span class="p">:</span> <span class="s1">'2025'</span><span class="p">,</span>
     <span class="s1">'pageSize'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>  
     <span class="s1">'startIndex'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s1">'format'</span><span class="p">:</span> <span class="s1">'JSON'</span><span class="p">,</span>
@@ -8204,7 +8206,7 @@ Requirement already satisfied: python-dotenv in /home/elias/.pyenv/versions/3.11
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-3:-Extract-and-Print-GWP">Step 3: Extract and Print GWP<a class="anchor-link" href="#Step-3:-Extract-and-Print-GWP">¶</a></h3>
+<h3 id="Step-3:-Extract-and-Print-GWP-(total)">Step 3: Extract and Print GWP (total)<a class="anchor-link" href="#Step-3:-Extract-and-Print-GWP-(total)">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8218,6 +8220,7 @@ Requirement already satisfied: python-dotenv in /home/elias/.pyenv/versions/3.11
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Access the first LCIA (Life Cycle Impact Assessment) result, which represents GWP-Total</span>
 <span class="n">gwp_result</span> <span class="o">=</span> <span class="n">detailed_data</span><span class="p">[</span><span class="s2">"LCIAResults"</span><span class="p">][</span><span class="s2">"LCIAResult"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># TODO Elias: nicht den ersten, sondern den mit UUID a7ea142a-9749-11ed-a8fc-0242ac120002</span>
 
 <span class="c1"># Extract short description of the impact category (e.g., "GWP-total")</span>
 <span class="n">gwp_description</span> <span class="o">=</span> <span class="n">gwp_result</span><span class="p">[</span><span class="s2">"referenceToLCIAMethodDataSet"</span><span class="p">][</span><span class="s2">"shortDescription"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"value"</span><span class="p">]</span>
@@ -8258,7 +8261,7 @@ Total GWP: 166.2 kg CO_(2) eqv.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-4:-Retrieve-Reference-Flow-Properties">Step 4: Retrieve Reference Flow Properties<a class="anchor-link" href="#Step-4:-Retrieve-Reference-Flow-Properties">¶</a></h3>
+<h3 id="Step-4:-For-determining-the-Declared-Unit-of-the-EPD,-retrieve-reference-flow-property">Step 4: For determining the Declared Unit of the EPD, retrieve reference flow property<a class="anchor-link" href="#Step-4:-For-determining-the-Declared-Unit-of-the-EPD,-retrieve-reference-flow-property">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8270,7 +8273,10 @@ Total GWP: 166.2 kg CO_(2) eqv.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Find reference flow index</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#TODO Elias: es ist viel einfacher - im exchange gibt es eine Liste von flowProperties, und an der ref. FP steht schon     "referenceFlowProperty" : true,   dran</span>
+<span class="c1">#Das Ergebnis sollte sein, daß alle Ergebnisse sich auf 1m3 Beton beziehen.</span>
+
+<span class="c1"># Find reference flow index</span>
 <span class="n">reference_flow_idx</span> <span class="o">=</span> <span class="n">detailed_data</span><span class="p">[</span><span class="s2">"processInformation"</span><span class="p">][</span><span class="s2">"quantitativeReference"</span><span class="p">][</span><span class="s2">"referenceToReferenceFlow"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># Extract relevant flow properties</span>
@@ -8328,7 +8334,7 @@ Has a GWP of:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-5:-Calculate-GWP-for-1-Ton-of-Concrete">Step 5: Calculate GWP for 1 Ton of Concrete<a class="anchor-link" href="#Step-5:-Calculate-GWP-for-1-Ton-of-Concrete">¶</a></h3>
+<h3 id="Step-5:-Calculate-GWP-for-1-metric-ton-of-concrete">Step 5: Calculate GWP for 1 metric ton of concrete<a class="anchor-link" href="#Step-5:-Calculate-GWP-for-1-metric-ton-of-concrete">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8345,7 +8351,7 @@ Has a GWP of:
 <span class="n">conversion_factor</span> <span class="o">=</span> <span class="n">mass_property</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span>  <span class="c1"># Convert from kg to tons</span>
 
 <span class="c1"># Compute the total GWP for 1 ton of concrete</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"That means 1 ton (1000 kg) of concrete has a GWP of </span><span class="si">{</span><span class="p">(</span><span class="n">total_gwp_value</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">conversion_factor</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">unit_description</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"That means 1 metric ton (1000 kg) of this concrete has a GWP of </span><span class="si">{</span><span class="p">(</span><span class="n">total_gwp_value</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">conversion_factor</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">unit_description</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8383,7 +8389,7 @@ Has a GWP of:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Base URL form the eco platform  </span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Base URL form the ECO Platform</span>
 <span class="n">BASE_URL</span> <span class="o">=</span> <span class="s1">'https://data.eco-platform.org/resource/'</span>
 
 <span class="c1"># Endpoint for processes</span>
@@ -8395,7 +8401,7 @@ Has a GWP of:
     <span class="s1">'distributed'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="s1">'virtual'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="s1">'metaDataOnly'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s1">'validUntil'</span><span class="p">:</span> <span class="mi">2024</span><span class="p">,</span>
+    <span class="s1">'validUntil'</span><span class="p">:</span> <span class="mi">2025</span><span class="p">,</span>
     <span class="s1">'pageSize'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
     <span class="s1">'startIndex'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s1">'format'</span><span class="p">:</span> <span class="s1">'JSON'</span><span class="p">,</span>
@@ -8470,13 +8476,10 @@ Has a GWP of:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">params</span><span class="p">[</span><span class="s2">"complianceMode"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"AND"</span>
-
-<span class="n">params</span><span class="p">[</span><span class="s2">"compliance"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"b00f9ec0-7874-11e3-981f-0800200c9a66"</span><span class="p">,</span>  <span class="s2">"c0016b33-8cf7-415c-ac6e-deba0d21440d"</span><span class="p">]</span>	
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">params</span><span class="p">[</span><span class="s2">"compliance"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"c0016b33-8cf7-415c-ac6e-deba0d21440d"</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}{</span><span class="n">PROCESS_ENDPOINT</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
 <span class="n">res</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span> 
 
-<span class="k">del</span> <span class="n">params</span><span class="p">[</span><span class="s1">'complianceMode'</span><span class="p">]</span>
 <span class="k">del</span> <span class="n">params</span><span class="p">[</span><span class="s2">"compliance"</span><span class="p">]</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"data"</span><span class="p">])</span>
@@ -8657,7 +8660,7 @@ Has a GWP of:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>In this example, we only chose EPDs that comply with <code>EN15804+A1</code> and <code>+A2 EF 3.0</code>.</p>
+<p>In this example, we only choose EPD datasets that comply with <code>EN15804+A2 EF 3.0</code>.</p>
 </div>
 </div>
 </div>
@@ -8668,7 +8671,8 @@ Has a GWP of:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Filter-by-Background-Databases">Filter by Background Databases<a class="anchor-link" href="#Filter-by-Background-Databases">¶</a></h3><p>the eco portal uses 2 types of Background Databases</p>
+<h3 id="Filter-by-Background-Database">Filter by Background Database<a class="anchor-link" href="#Filter-by-Background-Database">¶</a></h3><p>In ECO Portal, there are mainly two types of background database being used - ecoinvent database and Sphera MLC (f.k.a. GaBi database). These are identified by distinct UUIDs for which we can filter.</p>
+<p>While the database itself is represented by a source dataset with a specific UUID (e.g. the ecoinvent database as <code>b497a91f-e14b-4b69-8f28-f50eb1576766</code>), there exist additional source datasets with their own UUIDs for the individual versions (e.g. for ecoinvent 3.10 <code>6edab576-5247-472f-a2f4-0cb84561ca8b</code>). The former is mandatory and the latter is optional.</p>
 <h4 id="1.-GaBi">1. <a href="https://indatawg.github.io/ILCD-EPD-Data-Format/gitBranches/main/identifiers/BackgroundDB_SourceDatasets_GaBi.html">GaBi</a><a class="anchor-link" href="#1.-GaBi">¶</a></h4><table>
 <thead>
 <tr>
@@ -8794,8 +8798,8 @@ Has a GWP of:
 <td>cb600d3b-e85a-42b3-b059-5591e2757fbb</td>
 </tr>
 <tr>
-<td>Edition 2024</td>
-<td>Sphera MLC (fka GaBi) Databases Edition 2024</td>
+<td>Edition 2025</td>
+<td>Sphera MLC (fka GaBi) Databases Edition 2025</td>
 <td>7443b962-0446-4d69-8aa7-8055a6b1614a</td>
 </tr>
 </tbody>
@@ -8907,6 +8911,7 @@ Has a GWP of:
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a href="https://bitbucket.org/okusche/soda4lca/src/26955bf0d6dabc008e19a39c975973f762ef281f/Doc/src/Service_API/Service_API_Datasets_Process_Query.md?at=7.x-branch#Service_API_Datasets_Process_Query.md-44">This</a> is the API documentation for it</p>
+<p>The filtering can also be negated. The following code will filter for everything that does <em>not</em> declare GaBi as a background database:</p>
 </div>
 </div>
 </div>
@@ -8918,7 +8923,7 @@ Has a GWP of:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">params</span><span class="p">[</span><span class="s2">"dataSource"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"28d74cc0-db8b-4d7e-bc44-5f6d56ce0c4a"</span><span class="p">,</span> <span class="s2">""</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">params</span><span class="p">[</span><span class="s2">"dataSource"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"28d74cc0-db8b-4d7e-bc44-5f6d56ce0c4a"</span>
 <span class="n">params</span><span class="p">[</span><span class="s2">"dataSourceMode"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"NOT"</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}{</span><span class="n">PROCESS_ENDPOINT</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
@@ -9104,7 +9109,7 @@ Has a GWP of:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Filter-by-EPD-Numbers">Filter by EPD Numbers<a class="anchor-link" href="#Filter-by-EPD-Numbers">¶</a></h3>
+<h3 id="Filter-by-EPD-Numbers">Filter by EPD Numbers<a class="anchor-link" href="#Filter-by-EPD-Numbers">¶</a></h3><p>Each EPD has a unique declaration number (in the data format, it is called registration number) which we can also use as a filter criterion, even a partial EPD number:</p>
 </div>
 </div>
 </div>
@@ -9294,13 +9299,24 @@ Has a GWP of:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Explain-the-architecture">Explain the architecture<a class="anchor-link" href="#Explain-the-architecture">¶</a></h2><p>The ECO Platform has two main parts. The first part collects and combines data and is directly ownd by the ECO Platform.</p>
-<p>The second part consists of the nodes of the EPD Program Operator, which are also connected to the eco platform.</p>
-<p>So far, we have only worked on the Aggregator node.</p>
-<p>This diagram explains the relationship.</p>
+<p>There may be multiple datasets for a single EPD (with a single EPD number), for example in a case where there is a single EPD covering multiple product variants (e.g. a board with different thicknesses) while providing distinct LCA results for each variant. This is not to be confused with an EPD on an average of multiple products where there is only one set of LCA results.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Explaining-the-architecture">Explaining the architecture<a class="anchor-link" href="#Explaining-the-architecture">¶</a></h2><p>The entire system comprises two main parts. The first part, the ECO Portal, collects and combines data and is directly owned and operated by ECO Platform.</p>
+<p>The second part is the nodes of the individual EPD Program Operators, which are all connected to the ECO Portal.</p>
+<p>So far, we have mainly interacted with the ECO Portal.</p>
+<p>This diagram explains the architecture.</p>
 <p><img alt="Aggregator" src="./img/ECO_EPD_Portal.004.png"/></p>
-<p>The Aggregator node does not store data; it only collects data from other nodes and can perform queries on it. It also does not show the complete data.</p>
-<p>If you want to perform more complex queries on a single EPD, you can talk to the node directly to get more detailed information like so.</p>
+<p>The ECO Portal does not store data; it only collects data from the other nodes and can perform queries on it. It also does not show the complete dataset, but only the most relevant meta-data.</p>
+<p>If you want to perform more complex queries on a single EPD, you can talk to the node directly to get the full dataset, like this:</p>
 <p><img alt="full" src="./img/ECO_EPD_Portal.005.png"/></p>
 </div>
 </div>
@@ -9312,8 +9328,8 @@ Has a GWP of:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>so lets see what we can do on a single node</p>
-<h3 id="Getting-the-PDF">Getting the PDF<a class="anchor-link" href="#Getting-the-PDF">¶</a></h3>
+<p>So let's see what we can do on a single node.</p>
+<h3 id="Getting-the-PDF">Getting the PDF<a class="anchor-link" href="#Getting-the-PDF">¶</a></h3><p>We're going to look for an EPD dataset with a known EPD number, then generate the link that gives us the PDF for this EPD and then we are going to pull on that link.</p>
 </div>
 </div>
 </div>
@@ -9432,7 +9448,7 @@ PDF downloaded successfully.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Get-CSV">Get CSV<a class="anchor-link" href="#Get-CSV">¶</a></h3>
+<h3 id="Get-CSV">Get CSV<a class="anchor-link" href="#Get-CSV">¶</a></h3><p>The results of the EPD are also available in CSV format, which we can retrieve as follows:</p>
 </div>
 </div>
 </div>
@@ -9441,13 +9457,12 @@ PDF downloaded successfully.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># export https://bitbucket.org/okusche/soda4lca/src/0c04c255287f007249929e9fa80a1ea19f60601b/Doc/src/Service_API/Service_API_Datastock_GET_Export.md</span>
-<span class="n">base_url</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span><span class="s2">"//"</span> <span class="o">+</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">base_url</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span><span class="s2">"//"</span> <span class="o">+</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">base_url</span> <span class="o">=</span> <span class="s2">" https://ibudata.lca-data.com"</span>
-<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/resource/datastocks/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s2">/exportCSV"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/resource/processes/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s2">?format=csv"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
 <span class="c1"># Make the GET request</span>
@@ -9475,10 +9490,16 @@ PDF downloaded successfully.
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre> https://ibudata.lca-data.com/resource/datastocks/0ebf7111-4d1d-47a9-96cd-2e969f0f96a3/exportCSV
-&lt;!doctype html&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;HTTP Status 403 – Forbidden&lt;/title&gt;&lt;style type="text/css"&gt;body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;HTTP Status 403 – Forbidden&lt;/h1&gt;&lt;hr class="line" /&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt; Status Report&lt;/p&gt;&lt;p&gt;&lt;b&gt;Message&lt;/b&gt; Forbidden&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt; The server understood the request but refuses to authorize it.&lt;/p&gt;&lt;hr class="line" /&gt;&lt;h3&gt;Apache Tomcat/9.0.97&lt;/h3&gt;&lt;/body&gt;&lt;/html&gt;
-</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[1], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> base_url <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">uri</span><span style="color: rgb(98,98,98)">.</span>split(<span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">/</span><span style="color: rgb(175,0,0)">"</span>)[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">+</span><span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">//</span><span style="color: rgb(175,0,0)">"</span> <span style="color: rgb(98,98,98)">+</span> uri<span style="color: rgb(98,98,98)">.</span>split(<span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">/</span><span style="color: rgb(175,0,0)">"</span>)[<span style="color: rgb(98,98,98)">2</span>] 
+<span class="ansi-green-intense-fg ansi-bold">      2</span> base_url <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)"> https://ibudata.lca-data.com</span><span style="color: rgb(175,0,0)">"</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> url <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">"</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>base_url<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">/resource/processes/</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>uuid<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">/format=csv</span><span style="color: rgb(175,0,0)">"</span>
+
+<span class="ansi-red-fg">NameError</span>: name 'uri' is not defined</pre>
 </div>
 </div>
 </div>
@@ -9834,7 +9855,6 @@ PDF downloaded successfully.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>exchanges shortDescription is inconsistent use uuid</p>
 <p>publicationAndOwnership -&gt; referenceToRegistrationAuthority as example</p>
 </div>
 </div>
