@@ -9448,7 +9448,7 @@ PDF downloaded successfully.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Get-CSV">Get CSV<a class="anchor-link" href="#Get-CSV">¶</a></h3><p>The results of the EPD are also available in CSV format, which we can retrieve as follows:</p>
+<h3 id="Get-CSV">Get CSV<a class="anchor-link" href="#Get-CSV">¶</a></h3><p>The results of the EPD are also available in CSV format, where the results for each module are rendered as one row, which we can retrieve as follows:</p>
 </div>
 </div>
 </div>
@@ -9460,7 +9460,9 @@ PDF downloaded successfully.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">base_url</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span><span class="s2">"//"</span> <span class="o">+</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># TODO Elias: add version</span>
+
+<span class="n">base_url</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span><span class="s2">"//"</span> <span class="o">+</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">base_url</span> <span class="o">=</span> <span class="s2">" https://ibudata.lca-data.com"</span>
 <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/resource/processes/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s2">?format=csv"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -9500,6 +9502,32 @@ Cell <span class="ansi-green-fg">In[1], line 1</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> url <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">"</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>base_url<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">/resource/processes/</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>uuid<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">/format=csv</span><span style="color: rgb(175,0,0)">"</span>
 
 <span class="ansi-red-fg">NameError</span>: name 'uri' is not defined</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Get-full-dataset-in-ILCD+EPD-format-as-ZIP-file">Get full dataset in ILCD+EPD format as ZIP file<a class="anchor-link" href="#Get-full-dataset-in-ILCD+EPD-format-as-ZIP-file">¶</a></h3><p>If you want to obtain the complete ILCD+EPD dataset including its dependencies as a ZIP file, you can use the code below. For more details on the structure of the ZIP file, refer to the <a href="https://github.com/InDataWG/ILCD-EPD-Data-Format/blob/release/v1.2/doc/guides/ILCD-EPD_Data_Format_Introduction.md">ILCD+EPD Data Format Introduction</a>.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># TODO Elias: add complete code example</span>
+<span class="c1"># /resource/processes/{uuid}/zipexport?version=...</span>
+</pre></div>
 </div>
 </div>
 </div>
