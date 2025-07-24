@@ -8,7 +8,7 @@ This is how you can convert the notebook to **markdown**, **html** and **python*
 
 ```bash
 jupyter nbconvert --to markdown notebook.ipynb 
-jupyter nbconvert --to html notebook.ipynb 
+jupyter nbconvert --to html notebook.ipynb --template=lab
 jupyter nbconvert --to python notebook.ipynb 
 ```
 
