@@ -9365,12 +9365,7 @@ Name: 0, dtype: object
 <div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
-
-<span class="c1"># Why??</span>
-
-<span class="n">base_url</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span><span class="s2">"//"</span> <span class="o">+</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> 
-
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">base_url</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span><span class="s2">"//"</span> <span class="o">+</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> 
 <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/resource/processes/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s2">/epd?version=</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
@@ -9397,8 +9392,7 @@ Name: 0, dtype: object
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>https://ibudata.lca-data.com/resource/datastocks/7f92c48a-07c6-4a0c-91fd-4166e6138402/processes/0ebf7111-4d1d-47a9-96cd-2e969f0f96a3?version=00.01.001
-https://ibudata.lca-data.com/resource/processes/0ebf7111-4d1d-47a9-96cd-2e969f0f96a3/epd?version=00.01.001
+<pre>https://ibudata.lca-data.com/resource/processes/0ebf7111-4d1d-47a9-96cd-2e969f0f96a3/epd?version=00.01.001
 PDF downloaded successfully.
 </pre>
 </div>
@@ -9718,9 +9712,7 @@ PDF downloaded successfully.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># /resource/processes/{uuid}/zipexport?version=...</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/resource/processes/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s2">/zipexport?version=</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/resource/processes/</span><span class="si">{</span><span class="n">uuid</span><span class="si">}</span><span class="s2">/zipexport?version=</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 <span class="c1"># Make the GET request</span>
