@@ -23,7 +23,7 @@ jobs:
 
       - name: Convert Notebook to HTML
         run: |
-          jupyter nbconvert --to html notebook.ipynb --output index.html --template=lab
+          jupyter nbconvert --to html notebook.ipynb --output index.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
