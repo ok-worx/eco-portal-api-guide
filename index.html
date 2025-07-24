@@ -7558,7 +7558,9 @@ As the construction industry shifts toward <strong>low-carbon solutions and reso
 </code></pre>
 <p>The <strong>Authorization token</strong> needs to be includes in the request headers.</p>
 <p>Let's get started with a very simple use case.</p>
-<h3 id="Listing-All-EPD-datasets">Listing All EPD datasets<a class="anchor-link" href="#Listing-All-EPD-datasets">¶</a></h3><p>TODO Oli: reference that explains relationship EPD -&gt; EPD dataset</p>
+<h3 id="Listing-All-EPD-datasets">Listing All EPD datasets<a class="anchor-link" href="#Listing-All-EPD-datasets">¶</a></h3><p>Note: You may find multiple EPD datasets for the same EPD number. This is the case if an EPD covers multiple distinct products or product variants,
+where separate LCIA results are given for each individual product, in which case one digital dataset will have been generated per individual product
+or product variant.</p>
 <p>Let's list five EPD datasets using the API.</p>
 <h4 id="Query-Parameters-Documentation">Query Parameters Documentation<a class="anchor-link" href="#Query-Parameters-Documentation">¶</a></h4><ul>
 <li>The documentation for general <code>QUERY_PARAMETERS</code> can be found <a href="https://bitbucket.org/okusche/soda4lca/src/26955bf0d6dabc008e19a39c975973f762ef281f/Doc/src/Service_API/Service_API_Datasets_GET.md?at=7.x-branch">here</a>.</li>
